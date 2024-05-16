@@ -5,7 +5,8 @@ target_compile_options(minnow_testing_sanitized PUBLIC ${SANITIZING_FLAGS})
 
 add_custom_target(functionality_testing)
 add_custom_target(speed_testing)
-
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 macro(add_test_exec exec_name)
   add_executable("${exec_name}_sanitized" EXCLUDE_FROM_ALL "${exec_name}.cc")
   target_compile_options("${exec_name}_sanitized" PUBLIC ${SANITIZING_FLAGS})
